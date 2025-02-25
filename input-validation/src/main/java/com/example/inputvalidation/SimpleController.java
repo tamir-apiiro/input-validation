@@ -3,6 +3,9 @@ package com.example.inputvalidation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @RestController
 @RequestMapping("/api")
 public class SimpleController {
@@ -12,7 +15,7 @@ public class SimpleController {
     }
 
     @GetMapping("/age")
-    public String validateAge(@RequestParam int age) {
+    public String validateAge(@RequestParam @Min(18) int age, @RequestParam @Max(10) int fingers) {
         return "Your age is valid: " + age;
     }
 
