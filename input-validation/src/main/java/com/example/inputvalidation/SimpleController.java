@@ -15,7 +15,7 @@ public class SimpleController {
     }
 
     @GetMapping("/age")
-    public String validateAge(@RequestParam @Min(18) int age, @RequestParam @Max(10) int fingers) {
+    public String validateAge(@RequestParam int age, @RequestParam @Max(10) int fingers) {
         return "Your age is valid: " + age;
     }
 
