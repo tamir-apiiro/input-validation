@@ -1,10 +1,8 @@
 package com.example.inputvalidation;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 @RestController
@@ -18,5 +16,10 @@ public class SimpleController {
     @GetMapping("/age")
     public String validateAge(@RequestParam @Min(18) int age) {
         return "Your age is valid: " + age;
+    }
+
+    @PostMapping("/user")
+    public User createUser(@Valid @RequestBody User user) {
+        return user;
     }
 }
