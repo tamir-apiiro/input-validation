@@ -1,8 +1,8 @@
 package com.example.inputvalidation;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
 
 @RestController
@@ -19,7 +19,7 @@ public class SimpleController {
     }
 
     @PostMapping("/user")
-    public User createUser(@Valid @RequestBody User user) {
+    public User createUser(@Validated @RequestBody User user) {
         return user;
     }
 }
